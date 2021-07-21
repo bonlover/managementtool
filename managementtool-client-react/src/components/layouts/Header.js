@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
 	render() {
 		return (
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
-					<a className="navbar-brand" href="/dashdash">PP Management Tool</a>
+					<Link className="navbar-brand" to="/dashboard">PP Management Tool</Link>
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" >
 						<span className="navbar-toggler-icon"></span>
 					</button>
@@ -13,30 +14,30 @@ class Header extends Component {
 					<div className="collapse navbar-collapse" id="mobileNav">
 						<ul className="navbar-nav me-auto">
 							<li className="nav-item">
-								<a className="nav-link active" aria-current="page" href="/dashdash">Dashboard</a>
+								<Link className="nav-link active"  to="/dashboard">Dashboard</Link>
 							</li>
 							
 							<li className="nav-item">
-								<a className="nav-link" href="#">Project</a>
+								<Link className="nav-link" to="#">Project</Link>
 							</li>
 						</ul>
 						<ul className="navbar-nav ms-auto">
 							<li className="nav-item">
-								<a className="nav-link" href="#">Sign Up</a>
+								<Link className="nav-link" to="#">Sign Up</Link>
 							</li>
 							
 							<li className="nav-item">
-								<a className="nav-link" href="#">Sign In</a>
+								<Link className="nav-link" to="#">Sign In</Link>
 							</li>
 							
 							<li className="nav-item dropdown d-none">
-								<a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<span>UserName</span> 
-								</a>
+								</Link>
 								
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<li><a className="dropdown-item" href="#">Profile</a></li>
-									<li><a className="dropdown-item" href="#">Logout</a></li>
+									<li><Link className="dropdown-item" to="#">Profile</Link></li>
+									<li><Link className="dropdown-item" to="#">Logout</Link></li>
 								</ul>
 							</li>
 						</ul>
