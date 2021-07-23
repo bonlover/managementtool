@@ -1,4 +1,4 @@
-import  { React, Component } from 'react';
+import  React,{ Component } from 'react';
 import ProjectItem from './project/ProjectItem';
 import CreateProjectButton from './project/CreateProjectButton';
 import { connect } from 'react-redux';

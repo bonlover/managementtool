@@ -2,6 +2,7 @@ import './App.css';
 import Dashboard  from './components/Dashboard';
 import Header from './components/layouts/Header';
 import AddProject from './components/project/AddProject';
+import UpdateProject from './components/project/UpdateProject';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -13,7 +14,8 @@ function App() {
 				<div className="App">
 					<Header/>
 					<Route exact path="/dashboard" component={Dashboard} />
-					<Route exact path="/addProject" component={AddProject} />
+					<Route exact path="/add-project" component={AddProject} />
+					<Route exact path="/update-project/:id" component={UpdateProject} />
 				</div>
       		</Router>
     	</Provider>

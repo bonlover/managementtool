@@ -23,13 +23,13 @@ class ProjectItem extends Component {
                                             <span>Project Board </span>
                                         </li>
                                     </Link>
-                                    <Link to="#" className="text-decoration-none">
+                                    <Link to={`update-project/${project.projectIdentifier}`} className="text-decoration-none">
                                         <li className="list-group-item update">
                                             <i className="fa fa-edit pe-2"></i>
                                             <span className="">Update Project Info</span>
                                         </li>
                                     </Link>
-                                    <Link hretof="" className="text-decoration-none">
+                                    <Link to="" className="text-decoration-none">
                                         <li className="list-group-item delete">
                                             <i className="fa fa-minus-circle pe-2"></i>
                                             <span>Delete Project</span>
