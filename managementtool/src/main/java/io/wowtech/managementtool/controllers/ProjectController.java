@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/project")
+@CrossOrigin
 public class ProjectController {
 
     @Autowired
@@ -45,7 +46,7 @@ public class ProjectController {
     @DeleteMapping("/{projectId}")
     public ResponseEntity<?> deleteProject(@PathVariable String projectId){
         projectService.deleteProjectByIdentifier(projectId);
-        return new ResponseEntity<String>("Project with Identofier '" + projectId.toUpperCase() + "' was deleted successfully.", HttpStatus.OK);
+        return new ResponseEntity<String>("Project with Identifier '" + projectId.toUpperCase() + "' was deleted successfully.", HttpStatus.OK);
     }
 
 }

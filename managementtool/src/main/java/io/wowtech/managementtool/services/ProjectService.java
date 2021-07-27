@@ -1,7 +1,9 @@
 package io.wowtech.managementtool.services;
 
 import io.wowtech.managementtool.exceptions.ProjectIdentifierException;
+import io.wowtech.managementtool.model.Backlog;
 import io.wowtech.managementtool.model.Project;
+import io.wowtech.managementtool.repositories.BacklogRepository;
 import io.wowtech.managementtool.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,15 +13,28 @@ public class ProjectService {
 
     @Autowired
     private ProjectRepository projectRepository;
+    @Autowired
+    private BacklogRepository backlogRepository;
 
     public Project saveOrUpdateProject(Project project){
+        String identifier = project.getProjectIdentifier().toUpperCase();
         //logic
         try{
-            project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
+            project.setProjectIdentifier(identifier);
+            if(project.getId() == null){
+                Backlog backlog = new Backlog();
+                project.setBacklog(backlog);
+                backlog.setProject(project);
+                backlog.setProjectIdentifier(identifier);
+
+            }
+            if (project.getId() != null){
+                project.setBacklog(backlogRepository.findByProjectIdentifier(identifier));
+            }
             return projectRepository.save(project);
         }
         catch (Exception  e) {
-            throw new ProjectIdentifierException("Project Identifier '" +project.getProjectIdentifier().toUpperCase() + "' already exists." );
+            throw new ProjectIdentifierException("Project Identifier '" +identifier + "' already exists." );
         }
     }
 

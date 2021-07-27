@@ -12,23 +12,34 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-
-    @NotBlank(message = "Project Name is required")
+    @Column(name = "project_name")
+    @NotBlank(message = "Project Name is required.")
     private  String projectName;
-    @NotBlank(message = "Project Identifier is required")
-    @Size(min= 4, max =6, message="Please use 4 to 6 characters")
-    @Column(updatable = false, unique = true)
+    @Column(name = "project_identifier", updatable = false, unique = true)
+    @NotBlank(message = "Project Identifier is required.")
+    @Size(min= 4, max =6, message="Please use 4 to 6 characters.")
     private  String projectIdentifier;
-    @NotBlank(message = "Description is required")
+    @NotBlank(message = "Description is required.")
     private String description;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date start_date;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private  Date end_date;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
+    private Backlog backlog;
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
+    }
 
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date created_at;
     @JsonFormat(pattern = "yyyy-mm-dd")
+    @Column(updatable = false)
     private  Date updated_at;
 
     public Project() {
