@@ -13,7 +13,7 @@ public class Backlog {
     private Long id;
     @Column(name = "p_t_sequence")
     private Integer PTSequence = 0;
-    @Column(name = "project_identifier", updatable = false)
+    @Column(name = "project_identifier", updatable = false, unique = true)
     private String projectIdentifier;
 
     //OneToOne with project
