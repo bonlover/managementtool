@@ -33,7 +33,7 @@ export class AddProject extends Component {
             start_date:this.state.start_date,
             end_date:this.state.end_date
         }
-        this.props.createProject(newProject, this.props.history);
+        this.props.createProjectTask(newProject, this.props.history);
     }
 
     //Life Cycle Hooks
@@ -49,9 +49,9 @@ export class AddProject extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h5 className="display-4 text-center">Create Project form</h5>
+                            <h2 className="text-center fw-bolder mt-4">Create Project form</h2>
                             <hr />
-                            <form onSubmit={this.onSubmit}>
+                            <form onSubmit={this.onSubmit} className="mt-4">
                                 <div className="form-group mb-2">
                                     <input 
                                         type="text" 
@@ -96,27 +96,34 @@ export class AddProject extends Component {
                                        <div className="invalid-feedback">{errors.description}</div>
                                    )}
                                 </div>
-                                <h6>Start Date</h6>
+
                                 <div className="form-group mb-2">
-                                    <input 
-                                        type="date" 
-                                        className="form-control form-control-lg" 
-                                        name="start_date" 
-                                        value={this.state.start_date}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-                                <h6>Estimated End Date</h6>
-                                <div className="form-group mb-2">
-                                    <input 
-                                        type="date" 
-                                        className="form-control form-control-lg" 
-                                        name="end_date" 
-                                        value={this.state.end_date} 
-                                        onChange={this.onChange}
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="start_date">Start Date</span>
+                                        <input type="date" 
+                                            class="form-control form-control-lg" 
+                                            aria-describedby="start_date" 
+                                            name="start_date" 
+                                            value={this.state.start_date}
+                                            onChange={this.onChange}
                                         />
+                                    </div>
                                 </div>
-                                <div className="d-grid">
+
+                                <div className="form-group mb-2">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="end_date">&nbsp;End Date&nbsp;</span>
+                                        <input type="date" 
+                                            class="form-control form-control-lg" 
+                                            aria-describedby="end_date" 
+                                            name="end_date" 
+                                            value={this.state.end_date}
+                                            onChange={this.onChange}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="d-grid mt-3">
                                     <input type="submit" className="btn btn-primary" />
                                 </div>
                                 

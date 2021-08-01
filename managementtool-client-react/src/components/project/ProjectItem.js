@@ -24,7 +24,7 @@ class ProjectItem extends Component {
                             </div>
                             <div className="col-md-4 d-none d-lg-block">
                                 <ul className="list-group">
-                                    <Link to="#" className="text-decoration-none">
+                                    <Link to={`/project-board/${project.projectIdentifier}`} className="text-decoration-none">
                                         <li className="list-group-item board">
                                             <i className="fa fa-flag-checkered pe-2"></i>
                                             <span>Project Board </span>

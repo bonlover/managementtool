@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Header extends Component {
 	render() {
 		return (
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 				<div className="container-fluid">
 					<Link className="navbar-brand" to="/dashboard">PP Management Tool</Link>
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" >
