@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import Backlog from './Backlog';
+import {connect} from 'react-redux';
+import { getBacklog} from '../../actions/backlogActions';
 
 export class ProjectBoard extends Component {
-
+    //constructor to handle errors
+    componentDidMount(){
+        const {id} = this.props.match.params;
+        this.props.getBacklog(id);
+    }
     render() {
         const {id} = this.props.match.params;
+        const {project_tasks} = this.props.backlog;
         return (
            <div className="project_board">
                <div className="container">
@@ -18,72 +26,19 @@ export class ProjectBoard extends Component {
                        
                     </div>
 
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="card mb-3">
-                                <div className="card-body bg-secondary">
-                                    <h3 className="text-center">TODO</h3>
-                                </div>                       
-                            </div>
-                            
-                            <div className="card mb-3">
-                                <div className="card-header bg-danger text-white">
-                                    <span className="me-md-auto float-start"><i class="fas fa-id-badge"></i> ID: PROJ12 </span>
-                                    <span className="  float-end"><i class="fas fa-exclamation-circle"></i> Priority: HIGH </span>
-                                </div>
-                                <div className="card-body">
-                                    <p className="text-danger">Project Summary</p>
-                                    <Link className="btn btn-primary float-start" to="">View/Update</Link>
-                                    <Link className="btn btn-danger float-end" to="">Delete</Link>
-                                </div>
-
-                            </div>
-                        </div>                       
-                        <div className="col-md-4">
-                            <div className="card mb-3">
-                                <div className="card-body bg-primary">
-                                    <h3 className="text-center">Progress</h3>
-                                </div>                       
-                            </div>
-
-                            <div className="card mb-3">
-                                <div className="card-header bg-warning text-white">
-                                    <span className="me-md-auto float-start"><i class="fas fa-id-badge"></i> ID: PROJ12 </span>
-                                    <span className="  float-end"><i class="fas fa-exclamation-circle"></i> Priority: MEDIUM </span>
-                                </div>
-                                <div className="card-body">
-                                    <p className="text-warning">Project Summary</p>
-                                    <Link className="btn btn-primary float-start" to="">View/Update</Link>
-                                    <Link className="btn btn-danger float-end" to="">Delete</Link>
-                                </div>
-
-                            </div>
-                        </div>                       
-                        <div className="col-md-4">
-                            <div className="card mb-3">
-                                <div className="card-body bg-success">
-                                    <h3 className="text-center">COMPLETED</h3>
-                                </div>                       
-                            </div>
-
-                            <div className="card mb-3">
-                                <div className="card-header bg-info text-white">
-                                    <span className="me-md-auto float-start"><i class="fas fa-id-badge"></i> ID: PROJ12 </span>
-                                    <span className="  float-end"> <i class="fas fa-exclamation-circle"></i> Priority: LOW </span>
-                                </div>
-                                <div className="card-body">
-                                    <p className="text-info">Project Summary</p>
-                                    <Link className="btn btn-primary float-start" to="">View/Update</Link>
-                                    <Link className="btn btn-danger float-end" to="">Delete</Link>
-                                </div>
-
-                            </div>
-                        </div>                       
-                    </div>
+                    <Backlog project_tasks={project_tasks} />
                 </div>
             </div>
         )
     }
 }
+ProjectBoard.propTypes = {
+    getBacklog: PropTypes.func.isRequired,
+    backlog: PropTypes.object.isRequired
+}
 
-export default ProjectBoard
+const mapStateToProps= state => ({
+    backlog: state.backlog
+});
+
+export default connect(mapStateToProps, { getBacklog })(ProjectBoard);

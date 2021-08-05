@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {createProjectTask} from '../../../actions/backlogAction';
+import {createProjectTask} from '../../../actions/backlogActions';
 
 export class AddProjectTask extends Component {
 
@@ -141,8 +141,8 @@ export class AddProjectTask extends Component {
                                         onChange={this.onChange}
                                     >
                                         <option value="0">Select Status</option>
-                                        <option value="TO-Do">TO-Do</option>
-                                        <option value="TO Prograss">TO Prograss</option>
+                                        <option value="TODO">TODO</option>
+                                        <option value="inPrograss">In Prograss</option>
                                         <option value="Completed">Completed</option>
                                     </select>
                                     {errors.status && (
