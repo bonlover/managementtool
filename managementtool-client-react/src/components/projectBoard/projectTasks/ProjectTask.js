@@ -19,7 +19,7 @@ export class ProjectTask extends Component {
                             <h5 className="card-title">{project_task.summary}</h5>
                             <p className="card-text text-truncate pb-3">{project_task.acceptanceCriteria}</p>
                         </div>
-                        <Link className="btn btn-primary float-start" to="">View/Update</Link>
+                        <Link className="btn btn-primary float-start" to={`/edit-project-task/${project_task.projectIdentifier}/${project_task.projectSequence}`}>View/Update</Link>
                         <Link className="btn btn-danger float-end" to="">Delete</Link>
                     </div>
 

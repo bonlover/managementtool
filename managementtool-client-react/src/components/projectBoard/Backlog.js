@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import ProjectTask from './projectTasks/ProjectTask';
-import {Link} from 'react-router-dom';
 
 export class Backlog extends Component {
     render() {
@@ -15,7 +14,7 @@ export class Backlog extends Component {
         let completedItems = [];
 
         for (let i = 0; i < tasks.length; i++) {
-            console.log(tasks[i]);
+            // console.log(tasks[i]);
 
             if(tasks[i].props.project_task.status === 'TODO') {
                 todoItems.push(tasks[i]);

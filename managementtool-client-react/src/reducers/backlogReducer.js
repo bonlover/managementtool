@@ -24,6 +24,9 @@ export default function(state=initialState, action){
                 return {
                     ...state,
                     //TO_DO
+                    // project_task: state.project_tasks.filter(
+                    //     project_task => project_task.projectIdentifier !== action.payload
+                    // )
                 }
 
         default:
