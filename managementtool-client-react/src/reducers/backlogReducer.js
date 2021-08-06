@@ -3,7 +3,7 @@ import {GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK } from "../actions/ty
 const initialState = {
     project_tasks:[],
     project_task:{}
-}
+};
 
 export default function(state=initialState, action){
     switch(action.type){
@@ -20,13 +20,12 @@ export default function(state=initialState, action){
                     project_task: action.payload
                 }
 
-            case DELETE_PROJECT_TASK:
+            case DELETE_PROJECT_TASK: 
                 return {
                     ...state,
-                    //TO_DO
-                    // project_task: state.project_tasks.filter(
-                    //     project_task => project_task.projectIdentifier !== action.payload
-                    // )
+                    project_tasks: state.project_tasks.filter(
+                        project_task => project_task.projectSequence !== action.payload
+                    )
                 }
 
         default:

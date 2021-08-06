@@ -125,19 +125,16 @@ export class UpdateProjectTask extends Component {
 
                                 <div className="form-group mb-2">
                                     <textarea 
-                                        className={classnames("form-control form-control-lg", {"is-invalid":errors.acceptanceCriteria})}
+                                        className="form-control form-control-lg"
                                         placeholder="Acceptance Criteria Here" 
                                         name="acceptanceCriteria" 
                                         value={this.state.acceptanceCriteria}
                                         onChange={this.onChange}
                                     ></textarea>
-                                    {errors.acceptanceCriteria && (
-                                        <div className="invalid-feedback">{errors.acceptanceCriteria}</div>
-                                    )}
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <div className={classnames("input-group", {"is_invalid":errors.dueDate})}>
+                                    <div className="input-group">
                                         <span className="input-group-text" id="due_date">Due Date</span>
                                         <input name="dueDate" 
                                             type="date" 
@@ -151,14 +148,11 @@ export class UpdateProjectTask extends Component {
                                         
                                     </div>
                                     {Moment(this.state.dueDate).format('L')}
-                                    {errors.dueDate && (
-                                        <div className="invalid-feedback">{errors.dueDate}</div>
-                                    )}
                                 </div>
 
                                 <div className="form-group mb-2">
                                     <select name="priority" 
-                                        className={classnames("form-select form-select-md priority", {"is_invalid": errors.priority})} 
+                                        className="form-select form-select-md priority"
                                         aria-label=".form-select-md priority"
                                         value={this.state.priority}
                                         onChange={this.onChange}
@@ -168,14 +162,11 @@ export class UpdateProjectTask extends Component {
                                         <option value="2">MEDIUM</option>
                                         <option value="3">LOW</option>
                                     </select>
-                                    {errors.priority && (
-                                        <div className="invalid-feedback">{errors.priority}</div>
-                                    )}
                                 </div>
 
                                 <div className="form-group mb-2">
                                     <select name="status" 
-                                        className={classnames("form-select form-select-md status", {"is_invalid": errors.status} )}
+                                        className="form-select form-select-md status"
                                         aria-label=".form-select-md status"
                                         value={this.state.status}
                                         onChange={this.onChange}
@@ -185,9 +176,6 @@ export class UpdateProjectTask extends Component {
                                         <option value="inPrograss">In Prograss</option>
                                         <option value="Completed">Completed</option>
                                     </select>
-                                    {errors.status && (
-                                        <div className="invalid-feedback">{errors.status}</div>
-                                    )}
                                 </div>
   
                                 <div className="d-grid mt-3">

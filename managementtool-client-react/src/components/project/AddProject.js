@@ -42,6 +42,8 @@ export class AddProject extends Component {
             this.setState({ errors: nextProps.errors });
         }
     }
+ 
+
     render() {
         const { errors} = this.state;
         return (
@@ -98,10 +100,10 @@ export class AddProject extends Component {
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="start_date">Start Date</span>
+                                    <div className="input-group">
+                                        <span className="input-group-text" id="start_date">Start Date</span>
                                         <input type="date" 
-                                            class="form-control form-control-lg" 
+                                            className="form-control form-control-lg" 
                                             aria-describedby="start_date" 
                                             name="start_date" 
                                             value={this.state.start_date}
@@ -111,10 +113,10 @@ export class AddProject extends Component {
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="end_date">&nbsp;End Date&nbsp;</span>
+                                    <div className="input-group">
+                                        <span className="input-group-text" id="end_date">&nbsp;End Date&nbsp;</span>
                                         <input type="date" 
-                                            class="form-control form-control-lg" 
+                                            className="form-control form-control-lg" 
                                             aria-describedby="end_date" 
                                             name="end_date" 
                                             value={this.state.end_date}
